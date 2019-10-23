@@ -6,19 +6,27 @@ import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.web1.custom.MyConfig;
+
 //@Controller+@ResponseBody
 @RestController
 public class HelloController {
 	@Autowired
 	private Environment env;
-	//@RequestMapping(method=RequestMethod.GET)
+	// @RequestMapping(method=RequestMethod.GET)
 	@Value("${server.port}")
 	private String port;
+	@Autowired
+	private MyConfig myConfig;
+
 	@GetMapping("/port")
 	public String port1() {
-		String port=env.getProperty("server.port");
-		return "使用environment方式获得的服务器端口："+
-				env.getProperty("server.port")+"<p>"+
-				"使用Value方式获得的服务器端口："+port;
+		String port = env.getProperty("server.port");
+		return "使用environment方式获得的服务器端口：" + env.getProperty("server.port") + "<p>" + "使用Value方式获得的服务器端口：" + port;
+	}
+	
+	@GetMapping("/config")
+	public String name() {
+		return myConfig.getName();
 	}
 }

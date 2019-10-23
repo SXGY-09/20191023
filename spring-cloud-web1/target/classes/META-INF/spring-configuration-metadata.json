@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "com.web1",
+      "type": "com.web1.custom.MyConfig",
+      "sourceType": "com.web1.custom.MyConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "com.web1.name",
+      "type": "java.lang.String",
+      "sourceType": "com.web1.custom.MyConfig"
+    }
+  ],
+  "hints": []
+}
